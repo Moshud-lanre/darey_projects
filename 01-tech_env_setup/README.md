@@ -13,14 +13,18 @@ The project consist of screenshots of all the software installed.
 
 ![gitbash_screeshot](screenshots/02-git-bash.png)
 
+### Virtualbox Welcome page
+
+![ubuntu_welcome_page](screenshots/03-welcome_to_virtualbox.png)
+
 ### Ubuntu on Virtualbox
 
-![ubuntu_desktop](screenshots/03-Ubuntu_desktop.png)
+![ubuntu_desktop](screenshots/04-Ubuntu_login.png)
 
 ### AWS Account
 
-![aws_homepage](screenshots/04-AWS_homepage.png)
+![aws_homepage](screenshots/05-AWS_homepage.png)
 
 ### Github account
 
-![github_screenshot](screenshots/05-github_screenshot.png)
+![github_screenshot](screenshots/06-github_screenshot.png)
