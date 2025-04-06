@@ -20,3 +20,7 @@ A Version Control System is a vital tool in software developemnt, designed to tr
 ### Git commands
 
 ![git_commands](screenshots/04-git-commands.png)
+
+### Index file
+
+[!index_file](./index.html)
