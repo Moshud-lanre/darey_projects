@@ -16,3 +16,7 @@ A Version Control System is a vital tool in software developemnt, designed to tr
 - Pull request : ![add_contact](screenshots/03-add-contact-info-PR.png)
 
 - Merge : ![add_contact_merge](screenshots/03-add-contact-info-merge.png)
+
+### Git commands
+
+![git_commands](screenshots/04-git-commands.png)
