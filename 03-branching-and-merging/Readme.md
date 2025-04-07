@@ -29,4 +29,4 @@ The project involves step-by-step project to simulate workflow of Tom and Jerry 
 - 4. Jerry's PR: ![jerry_pr](screenshots/jerry-pr.png)
 - 5. Jerry's PR merge: ![jerry_pr_merge](screenshots/jerry-pr-merge.png)
 
-project repo link :<https://github.com/Moshud-lanre/>
+project repo link : https://github.com/Moshud-lanre/darey_projects/tree/main/03-branching-and-merging
