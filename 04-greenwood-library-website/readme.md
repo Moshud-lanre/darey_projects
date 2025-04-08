@@ -5,7 +5,8 @@ The project involves step-by-step project to simulate workflow of Morgan and Jam
 
 ### Part 1 Setup and Initial Configuration
 
-- Create and Clone repository : ![create_repo](screenshots/01-git-clone.png)
+- Create and Clone repository : 
+    ![create_repo](screenshots/01-git-clone.png)
 
 - First commit (Team codebase) - ![first_commit](screenshots/02-team-codebase.png)
 
