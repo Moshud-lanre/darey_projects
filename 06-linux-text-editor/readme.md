@@ -1,6 +1,6 @@
 # Linux Text Editors
 
-Linux text editor is a software application specifically designed for creating, modifying, and managing text files on a Linux-based operating system. Text editors play a crucial role in the Linux environment, providing ameans for users to interact with and manipulate plain text files, configuration files, scripts, and other text based documents.
+Linux text editor is a software application specifically designed for creating, modifying, and managing text files on a Linux-based operating system. Text editors play a crucial role in the Linux environment, providing a means for users to interact with and manipulate plain text files, configuration files, scripts, and other text based documents.
 
 This project seeks to demonstrate some text editors by exploring their features.
 
