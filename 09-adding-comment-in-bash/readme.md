@@ -18,8 +18,6 @@ Single-line comments are useful for
     - Documentation: Providing information about script functionality.
 ![single-line](screenshots/1-single-line.png)
 
-link to use case making use of single line comments to explain code.![use-case](commented_script.sh)
-
 - 2.Multi-line Comments: Bash doesn't have a specific syntax for multi-line comments like some other languages. However, you can use:
 
   - 1: Using # for each line
