@@ -36,6 +36,7 @@ After implementing functions, the code now looks like this:
 The script was executed to test the functions implemented
 
 - Check argument function
+
 ![check-args](screenshots/check-args-output.png)
 
 - Activate Infrastructure Environment
