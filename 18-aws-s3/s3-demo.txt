@@ -1,0 +1,3 @@
+Welcome to the AWS world.
+
+I am adding this content after enabling bucket verioning.
