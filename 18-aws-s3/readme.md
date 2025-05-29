@@ -1,4 +1,4 @@
-# AWS S# Mini Project
+# AWS S3 Mini Project
 
 ## Project Goals
 
@@ -24,6 +24,7 @@ The following will be demonstrated:
 1. Creation of S3 bucket using AWS console
 
 ![create-bucket](screenshots/create-bucket.png)
+
 
 2. Uploading file to S3 bucket
 
