@@ -1,0 +1,133 @@
+# Security Groups and NACLs mini project
+
+This project explores the core concepts of Amazon Web Services(AWS), specifically focusing on Security Groups and Network Acess Control Lists(NACLs). The objective is to understand these fundamental components of AWS infrastructure, including how Security Groups control inbound and outbound traffic to EC2 instances, and how NACLs act as subnet level firewalls, regulating traffic entering and exiting subnets.
+
+## Security Group
+
+In AWS, a security group acts as a virtual firewall that controls the inbound and outbound traffic for AWS resources like EC2 instances. It is essentially a set of rules that determine what traffic is allowed to reach your instances and what traffic can leave them. These rules specify parameters like protocols(e.g. TCP, UDP), ports(e.g. 80 for HTTP), and source/destination IP addresses or CIDR blocks.
+
+- Inbound Rules: Rules that control the incoming traffic from an AWS resource.
+
+- Outbound Rules: Rules that control the outgoing traffic from an AWS resource.
+
+- Stateful: Security groups automatically allow return traffic initiated by the instances to which they are attached.
+
+- Port: A communication endpoint that processes incoming and outcoming network traffic. Security groups use ports to specify the types of traffic allowed.
+
+- Protocol: The set of rules that governs the communication between different endpoints in anetwork. Common protocols include TCP, UDP, and ICMP
+
+### Network Access Control List(NACL)
+
+A Network Access Control List is a set of rules used to filter network traffic based on specific criteria, like IP addresses, protocols, and ports, to control access to the network resources. NACLs act as a firewall at the subnet level, controlling traffic entering and exiting the subnet.
+
+- Stateless: Unlike security groups, NACLs are stateless, meaning they do not automatically allow return traffic. One must explicitly configure rules for both inbound and outbound traffic.
+
+- Allow/Deny: NACL rules can either allow or deny traffic based on the specified criteria.
+
+### Default Settings
+
+- Security Group: Every VPC comes with a security group that allows all outbound traffic and denies all inbound traffic by default.
+
+- NACL: Every subnet within a VPC is associated with a default NACL that allows all inbound traffic by default.
+
+### Difference between Security Group and NACL
+
+Security Groups in AWS act like virtual firewalls that control traffic at the instance level. They define rules for inbound and outbound traffic based on protocols, port and IP addresses. Essentially, security group protect individual instancees by filtering traffic, allowing only authorized communication.
+
+Network Access Control Lists(NACLs) function at the subnet level, overseeing traffic entering and leaving subnets. They operate as abarrier for entire subnets, filtering traffic based on IP addresses and protocol numbers. Unlike security groups, NACL are stateless, meaning they don't remember the state of the connection, and each rule applies to bothinbound and outbound traffic independently.
+
+There's no explicit "deny" option as seen in NACLs, any rule configured within a security group implies permission.
+
+### Demo
+
+1. Security group
+
+    - Inbound and Outbound rules configuration: The demo takes advantage of the public subnet created in the VPC mini project and created an EC2 instance that's  running a website.
+
+![ec2-page](screenshots/1-ec2_page.png)
+
+    - Default security group rules attached to EC2 instance
+
+![default-inbound](screenshots/2-default-inbound-sg.png)
+
+![default-outbound](screenshots/3-default-outbound-sg.png)
+
+    - Tested the accessibilty to the website using the public IP address assigned to the instance. Access was denied to the website because of the default security group attached to it.
+
+![web-access](screenshots/5-access-denied.png)
+
+    - To resolve the access issue, a new security group was created that allows HTTP(port 80) traffic and was attached to the website instance
+
+![new-security-group-inbound](screenshots/7-sg-create-success.png)
+
+![new-security-group-outbound](screenshots/7-outbound-sg-new.png)
+
+![attach-sg](screenshots/change-security-group.png)
+
+    - Accessing the website again after setting up a new security group 
+
+![allow-access](screenshots/access-granted.png)
+
+    - Tested the accessibility of the website by deleting the outbound rule of the new security group 
+![del-outbound](screenshots/outbound-delete.png)
+
+![outbound-test](screenshots/access-after-out-del.png)
+
+    - Also deleted the inbound rule
+
+![inbound-delete](screenshots/inbound-delete.png)
+
+![web-after-inbound-delete](screenshots/web-no-inbound-rule.png)
+
+    - Edited the outbound rule to accept http traffic while leaving the inbound without any rule to test website access.
+
+![update-outbound](screenshots/outbound-update.png)
+
+![access-deny](screenshots/5-access-denied.png)
+
+    - Connected the instance through the SSH and tested  access to the internet
+
+![ssh-connect](screenshots/ssh.png)
+
+![ssh-internet-access](screenshots/ssh-access.png)
+
+2.Network Access Control Lists (NACLs)
+
+- created a NACL
+![setup-nacl](screenshots/nacl-setup.png)
+
+![inbound-nacl](screenshots/default-nacl-inbound.png)
+
+![outbound-nacl](screenshots/default-nacl-outbound.png)
+
+- Added new rule to allow all traffic into the subnet
+
+![inbound-update](screenshots/nacl-inbound-update.png)
+
+- Associated the NACL to public subnet
+
+![associate-subnet](screenshots/subnet-association.png)
+
+- Checked the website to see if access will be allowed after attaching NACL
+
+![web-access-deny](screenshots/5-access-denied.png)
+
+ Access was denied despite permitting inbound traffic in the NACL because NACLs is stateless, meaning they don't automatically allow return traffic. Inbound and Outbound rule must be explicitly defined.
+
+![outbound-rule](screenshots/nacl-outbound-rule-update.png)
+
+![web-access](screenshots/access-granted.png)
+
+### Trying out scenarios
+
+1. a. Security group: Allows inbound traffic for HTTP and SSH protocols and permits all outbound traffic
+
+![inbound-sg](screenshots/6-inbound-sg-new.png)
+
+![outbound-sg](screenshots/7-outbound-sg-new.png)
+
+    b. Network ACL: Denies all inbound traffic.
+![acl-rule](screenshots/nacl-inbound-scenario-2.png)
+
+outcome
+![outcome](screenshots/5-access-denied.png)

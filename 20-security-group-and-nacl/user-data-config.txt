@@ -1,0 +1,16 @@
+#!/bin/bash
+
+sudo yum update -y
+sudo yum install httpd -y
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo echo "<html>
+	<head>
+		  <title> Web access demo</title>
+	</head>
+	<body>
+		<h3> ********* You're seeing this page due to the security group setup implemented! ******************** </h3>
+	</body>
+</html>" > /var/www/html/index.html
+
+sudo systemctl restart httpd 
