@@ -6,27 +6,39 @@ ec2_running_instances=()
 s3_buckets=()
 
 # Command line arguments
-instance_name=$1
-instance_type=${2:-$INSTANCE_TYPE_DEFAULT}
-bucket_name=$3
+instance_base_name=$1
+instance_count="$2"
+instance_type=${3:-$INSTANCE_TYPE_DEFAULT}
+bucket_name=$4
 
 # Function to create an EC2 instance
 create_ec2(){
-    echo $1
-    echo "Attempting to create EC2 instance: $instance_name ($instance_type) ...."
+
+    echoecho "Attempting to create $instance_count EC2 instance(s) with base name: $instance_base_name ($instance_type)..."
 
     # Instance name validation
-    if [ -z "$instance_name" ]; then
+    if [ -z "$instance_base_name" ]; then
         echo "Error: EC2 instance name cannot be empty."
         exit 1
     fi
+
+    if ! [[ "$instance_count" =~ ^[0-9]+$ ]] || [ "$instance_count" -le 0 ]; then
+        echo "Error: Instance count must be a positive integer."
+        exit 1
+    fi
+
+    for i in $(seq 1 "$instance_count"); do
+        local current_instance_name="${instance_base_name}-${i}"
+        echo "  - Creating EC2 instance: $current_instance_name"
+    done
+
 
     instance_id=$(
         aws ec2 run-instances \
         --image-id "$AMI_ID" \
         --count 1 \
         --instance-type "$instance_type" \
-        --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance_name}]" \
+        --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$current_instance_name}]" \
         --query 'Instances[0].InstanceId' \
         --output text
     )
