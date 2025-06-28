@@ -137,3 +137,61 @@ The updated script looks like this
 ![updated-script](screenshots/check-arg-code.png)
 
 ![output](screenshots/update-script-output.png)
+
+### AWS Simulation
+
+Below is the screenshot of the source code used for powering the automation
+
+![automate-code](screenshots/code-1.png)
+
+![automate-ec2](screenshots/ec2-code.png)
+
+![automate-ec2-2](screenshots/ec2-code2.png)
+
+![s3-automate](screenshots/s3-code.png)
+
+![main-function](screenshots/main-code.png)
+
+
+1. Functions: Implemented custom functions to modularize the tasks of creating EC2 instance and S3 bucket.
+
+![func-ec2](screenshots/ec2-code.png)
+
+![func-ec2-2](screenshots/ec2-code2.png)
+
+![s3-func](screenshots/s3-code.png)
+
+![main-func](screenshots/main-code.png)
+
+EC2-running
+
+![ec2-run-1](screenshots/ec2-running.png)
+
+![ec2-console-proof](screenshots/ec2-console.png)
+
+
+S3 bucket create success
+
+![s3-create](screenshots/s3-create.png)
+
+![s3-proof](screenshots/s3-console-proof.png)
+
+2. Array: Used array to manage the list of ec2 instances and s3 buckets
+
+![array](screenshots/declared-array.png)
+
+3. Environment Variables: Leveraged environment variables to store configuration variables
+
+![env-var](screenshots/env_variables.png)
+
+4. Command Line Arguments: Accepted command line arguments to customize script behaviour
+
+![cli-arg](screenshots/ec2-running.png)
+
+5. Error handling: Implemented robust error handling mechanisms to catch and respond to AWS service exceptions.
+
+![ec2-name-validation](screenshots/ec2-name-validation.png)
+
+![s3-name-validation](screenshots/bucket-name-validation.png)
+
+![s3-name-exists](screenshots/s3-name-exists.png)
