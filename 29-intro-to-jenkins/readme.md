@@ -46,3 +46,32 @@ Jenkins is widely employed as a crucial CI/CD tool for automating software devel
 8. Log into Jenkins console
 
 ![jenkins-dashboard](screenshots/jenkins-dashboard.png)
+
+9. Create a repo
+
+![repo-scm](screenshots/create-repo.png)
+
+10. Connect Jenkins to jenkins-scm repo created
+
+![repo-link](screenshots/link-repo.png)
+
+11. Save configuration and run "Build now"
+
+Error encountered when "Build now was ran
+
+![error-build-now](screenshots/build-error.png)
+
+Added jenkinsfile to the repo to fix error
+
+![build-now](screenshots/build-now-1.png)
+
+12. Configure Build Trigger
+
+![build-trigger](screenshots/trigger-setup.png)
+
+13. Create a github webhook using jenkins ip address and port
+
+![webhook-setup](screenshots/webhook-setup.png)
+![webhook](screenshots/add-webhook.png)
+
+![webhook-proof](screenshots/webhook%20proof.png)
